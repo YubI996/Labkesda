@@ -3,8 +3,8 @@
 namespace App\Http\Livewire\Parameter;
 
 use Livewire\Component;
-use App\KmParameterPemeriksaan;
 use Livewire\WithPagination;
+use App\KmParameterPemeriksaan;
 
 class Index extends Component
 {
@@ -18,7 +18,7 @@ class Index extends Component
     
     public function render()
     {
-        return view('livewire.parameter.index',[
+        return view('livewire.kesmas.parameter.index',[
             'parameter_fisika'       => KmParameterPemeriksaan::where('jenis',1)
                                         ->where('nama', 'like', '%'.$this->search.'%')
                                         ->paginate(5),
@@ -42,7 +42,7 @@ class Index extends Component
         $this->resetPage();
     }
 
-    public function resetInputFields()
+    private function resetInputFields()
     {
         $this->nama = '';
         $this->jenis = '';
@@ -66,17 +66,6 @@ class Index extends Component
         
     }
 
-    public function editParameter($id)
-    {
-        $this->updateMode = true;
-        $parameter = KmParameterPemeriksaan::where('id',$id)->first();
-        $this->parameterId = $id;
-        $this->nama = $parameter->nama;
-        $this->jenis = $parameter->jenis;
-        $this->harga = $parameter->harga;
-        
-    }
-
     public function cancel()
     {
         $this->updateMode = false;
@@ -89,6 +78,17 @@ class Index extends Component
     {
         $this->emit('openModalParameter');
         $this->emit('openDeleteConfirmationParameter');
+    }
+
+    public function editParameter($id)
+    {
+        $this->updateMode = true;
+        $parameter = KmParameterPemeriksaan::where('id',$id)->first();
+        $this->parameterId = $id;
+        $this->nama = $parameter->nama;
+        $this->jenis = $parameter->jenis;
+        $this->harga = $parameter->harga;
+        
     }
 
     public function updateParameter()
@@ -107,13 +107,11 @@ class Index extends Component
                 'harga'=> $this->harga
             ]);
             $this->updateMode = false;
-            session()->flash('message', ' Data Parameter Berhasil di Update.');
+            session()->flash('message', 'Data Parameter Berhasil di Update');
             $this->resetInputFields();
 
         }
     }
-
-    //////////////////////////////////////////////////////
 
     public function destroyModalParameter($id)
     {

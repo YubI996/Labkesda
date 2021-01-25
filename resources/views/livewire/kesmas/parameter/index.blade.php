@@ -1,6 +1,6 @@
 <div>
-@include('livewire.parameter.update')
-@include('livewire.parameter.delete-confirmation')
+@include('livewire.kesmas.parameter.update')
+@include('livewire.kesmas.parameter.delete-confirmation')
 <h4>Data Parameter Yang Diperiksa</h4>
 <div class="row">
 	<div class="col-md-8">
@@ -16,20 +16,20 @@
                 </li>
             </ul>
             <div id="myTabContent" class="tab-content custom-product-edit st-prf-pro">
-			<div class="col-md-6">
-			</div>
-			<div class="col-md-6 mt-2">
-				<input wire:model="search" type="text" class="form-control" placeholder="Search...">
-			</div>
                 <div class="product-tab-list tab-pane fade active in" id="TabFisika">
                     <div class="row">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <div class="review-content-section">
                                 <div class="row">
+								<div class="col-md-6">
+								</div>
+								<div class="col-md-6 mt-2">
+									<input wire:model="search" type="text" class="form-control" placeholder="Search...">
+								</div>
                                     <div class="col-lg-12">
                                     	<table id="table" class="table">
                                     		<thead>
-							                    <tr>
+							                    <tr">
 							                        <th data-field="id">No.</th>
 							                        <th data-field="name">Nama Parameter</th>
 							                        <th data-field="jns">Jenis Parameter</th>
@@ -58,31 +58,8 @@
 													</td>
 	                                    			<td>Rp.{{ number_format($data->harga,2,',','.')}}</td>
 													<td>
-													<button data-toggle="modal" data-target="#updateModal" wire:click="editParameter({{ $data->id }})" class="btn btn-primary btn-sm">Edit</button>
+													<button data-toggle="modal" data-target="#updateModal" wire:click="editParameter({{ $data->id }})" class="btn btn-warning btn-sm">Edit</button>
 													<button data-toggle="modal" data-target="#destroyModal" wire:click="destroyModalParameter({{ $data->id }})" class="btn btn-danger btn-sm">Delete</button>
-
-													<!-- <button type="button" class="btn btn-custon-four btn-danger btn-xs" data-toggle="modal" data-target="#DangerModalalert{{$data->id}}"><i class="fa fa-trash"></i></button> -->
-													<!-- <div id="destroyModal" class="modal modal-edu-general FullColor-popup-DangerModal fade" role="dialog">
-														<div class="modal-dialog">
-															<div class="modal-content">
-																<form wire:submit.prevent="destroyParameter({{ $data->id }})">													
-																<div class="modal-close-area modal-close-df">
-																	<a class="close" data-dismiss="modal" href="#"><i class="fa fa-close"></i></a>
-																</div>
-																<div class="modal-body">
-																<form>
-																	<input type="hidden" wire:model="parameterId">
-																	<p>Yakin akan menghapus {{$data->judul}}?</p>
-																</form>
-																</div>
-																<div class="modal-footer danger-md">
-																	<button type="button" class="btn btn-custon-four btn-default btn-md" data-dismiss="modal"><i class="fa fa-close"></i> Cancel</button>
-																	<button type="submit" name="del" class="btn btn-custon-four btn-danger btn-md"><i class="fa fa-trash"></i> Delete</button>
-																</div>
-																</form>
-															</div>
-														</div>
-													</div> -->
 													</td>	                            
 	                                    		</tr>
 												@empty
@@ -608,10 +585,10 @@
 <div class="row">
 <div class="col-md-4">
 		<div class="card">
-			<div class="card-body">
+			<div class="card-body" style="padding: 10px 15px">
 			 	<form wire:submit.prevent="parameterStore">	 	
 					 <div class="form-group">
-						<label for="exampleFormControlInput1" class="form-label">Nama Parameter</label>
+						<label for="exampleFormControlInput1" class="bmd-label-floating">Nama Parameter</label>
 						<input wire:model="nama" type="text" class="form-control"  placeholder="Nama Parameter">
 						@error('nama')<small class="text-danger">{{$message}}</small> @enderror
 					 </div>

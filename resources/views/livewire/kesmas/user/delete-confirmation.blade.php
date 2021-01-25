@@ -1,6 +1,6 @@
 <div>
     <!-- Modal -->
-<div wire:ignore.self class="modal modal-xl fade" id="destroyModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div wire:ignore.self class="modal modal-xl fade" id="userDestroyModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
        <div class="modal-content">
                 <div class="modal-close-area modal-close-df">
@@ -8,13 +8,13 @@
 			    </div>
             <div class="modal-body">
             <form>           
-                <input type="hidden" wire:model="parameterId">
+                <input type="hidden" wire:model="userId">
 				<p>Yakin akan menghapus ?</p>
             </form>
             </div>
             <div class="modal-footer">
                 <button type="button" wire:click.prevent="cancel()" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" wire:click.prevent="destroyParameter()" class="btn btn-danger" data-dismiss="modal">Save changes</button>
+                <button type="button" wire:click.prevent="destroyUser()" class="btn btn-danger" data-dismiss="modal">Delete</button>
             </div>
        </div>
     </div>
