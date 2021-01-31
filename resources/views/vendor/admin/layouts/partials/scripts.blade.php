@@ -87,5 +87,15 @@
         window.livewire.on('openDeleteConfirmationParameter', () => {
             $('#exampleModal').modal('hide');
         });
+        //==================User=================//
+        window.livewire.on('openModalUser', () => {
+            $('#userCreateModal').modal('hide');
+        });
+        window.livewire.on('openModaEditlUser', () => {
+            $('#userUpdateModal').modal('hide');
+        });
+        window.livewire.on('openDeleteConfirmationUser', () => {
+            $('#userDestroyModal').modal('hide');
+        });
     </script>
 @yield('custom_scripts')

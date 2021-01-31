@@ -23,7 +23,8 @@ Route::get('/form', function () {
 Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
-Route::group(['middleware' => 'superadmin',"prefix"=>"admin/"], function(){
-    Route::get('parameter', \App\Http\Livewire\Parameter\Index::class)->name('parameter');
-    Route::post('store-parameter', 'KesmasController@storeParameter')->name('storeParameter');
+Route::group(['middleware' => 'superadmin',"prefix"=>"admin/kesmas/"], function(){
+    Route::get('parameter', \App\Http\Livewire\Parameter\Index::class)->name('kesmas.parameter');
+    Route::get('user', \App\Http\Livewire\User\Index::class)->name('kesmas.user');
+    // Route::post('store-parameter', 'KesmasController@storeParameter')->name('storeParameter');
 });
