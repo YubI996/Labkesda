@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class KmSample extends Model
+class KmSampel extends Model
 {
-    protected $table = 'km_sample';
+    protected $table = 'km_sampel';
 
     protected $guarded = [];
 }

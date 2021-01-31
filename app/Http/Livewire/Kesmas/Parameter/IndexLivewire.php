@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Livewire\Parameter;
+namespace App\Http\Livewire\Kesmas\Parameter;
 
 use Livewire\Component;
 use Livewire\WithPagination;
 use App\KmParameterPemeriksaan;
 
-class Index extends Component
+class IndexLivewire extends Component
 {
     use WithPagination;
 

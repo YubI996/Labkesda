@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Livewire\User;
+namespace App\Http\Livewire\Kesmas\User;
 
 use Livewire\Component;
 use Livewire\WithPagination;
 use App\User;
 
-class Index extends Component
+class IndexLivewire extends Component
 {
     use WithPagination;
 

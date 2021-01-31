@@ -21,7 +21,10 @@ Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::group(['middleware' => 'superadmin',"prefix"=>"admin/kesmas/"], function(){
-    Route::get('parameter', \App\Http\Livewire\Parameter\Index::class)->name('kesmas.parameter');
-    Route::get('user', \App\Http\Livewire\User\Index::class)->name('kesmas.user');
-    // Route::post('store-parameter', 'KesmasController@storeParameter')->name('storeParameter');
+    Route::get('parameter', \App\Http\Livewire\Kesmas\Parameter\IndexLivewire::class)->name('kesmas.parameter');
+    Route::get('user', \App\Http\Livewire\Kesmas\User\IndexLivewire::class)->name('kesmas.user');
+    Route::get('sampel', \App\Http\Livewire\Kesmas\Sampel\IndexLivewire::class)->name('kesmas.sampel');
+    Route::get('create-sampel', \App\Http\Livewire\Kesmas\Sampel\CreateLivewire::class)->name('kesmas.createSampel');
+    Route::get('create-parameter-sampel/{id}', \App\Http\Livewire\Kesmas\Sampel\CreateParameterLivewire::class)->name('kesmas.createParameterSampel');
+    
 });
