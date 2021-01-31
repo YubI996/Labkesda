@@ -16,6 +16,9 @@ use App\Http\Controllers\HomeController as HomeController;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/form', function () {
+    return view('form');
+})->name('form');
 
 Auth::routes();
 
