@@ -19,11 +19,11 @@ class RegisKesmas extends Migration
             $table->string('nama');
             $table->string('alamat');
             $table->string('pengirim');
-            $table->string('jenis_sample');
+            $table->string('jenis_sampel');
             $table->date('tgl_sampling');
             $table->date('tgl_penerima');
-            $table->string('deskripsi_sample');
-            $table->string('jenis_sample_cb');
+            $table->string('deskripsi_sampel');
+            $table->integer('status_regis');
             $table->timestamps();
         });
     }

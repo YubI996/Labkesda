@@ -8,5 +8,5 @@ class KmTransaksi extends Model
 {
     protected $table = 'Km_Transaksi';
 
-    protected $guarde = [];
+    protected $guarded = [];
 }

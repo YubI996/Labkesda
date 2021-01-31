@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Sample extends Migration
+class CreateUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,14 @@ class Sample extends Migration
      */
     public function up()
     {
-        Schema::create('km_sampel', function (Blueprint $table) {
+        Schema::create('user', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('id_regis_kesmas');
-            $table->integer('id_km_parameter_pemeriksaan');
-            $table->string('hasil_pemeriksaan');
+            $table->string('name');
+            $table->string('username');
+            $table->string('email')->unique();
+            $table->string('password');
+            $table->string('role');
+            $table->rememberToken();
             $table->timestamps();
         });
     }
@@ -29,6 +32,6 @@ class Sample extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('users');
     }
 }
