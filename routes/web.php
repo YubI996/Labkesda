@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController as HomeController;
+use App\Http\Controllers\KesmasPdfController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,5 +27,6 @@ Route::group(['middleware' => 'superadmin',"prefix"=>"admin/kesmas/"], function(
     Route::get('sampel', \App\Http\Livewire\Kesmas\Sampel\IndexLivewire::class)->name('kesmas.sampel');
     Route::get('create-sampel', \App\Http\Livewire\Kesmas\Sampel\CreateLivewire::class)->name('kesmas.createSampel');
     Route::get('create-parameter-sampel/{id}', \App\Http\Livewire\Kesmas\Sampel\CreateParameterLivewire::class)->name('kesmas.createParameterSampel');
-    
+    Route::get('hasil/{id}', \App\Http\Livewire\Kesmas\Sampel\HasilLivewire::class)->name('kesmas.hasil');
+    Route::get('strukpdf/{id}',[KesmasPdfController::class,'struk'])->name('kesmas.struk');
 });

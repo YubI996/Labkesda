@@ -4,10 +4,10 @@ namespace App\Http\Livewire\Kesmas\Sampel;
 
 use Livewire\Component;
 use Illuminate\Support\Str;
-use App\KmParameterPemeriksaan;
+use App\Kmparameter;
 use App\User;
-use App\RegisKesmas;
-use App\KmSampel;
+use App\Regiskesmas;
+use App\Kmsampel;
 
 class CreateLivewire extends Component
 {
@@ -39,9 +39,9 @@ class CreateLivewire extends Component
     {
         
         
-        $no= Str::random(40);
+        $no= rand(10,100);
 
-        $regis = RegisKesmas::create([
+        $regis = Regiskesmas::create([
             'no_regis'         => $no,
             'nama'             => $this->nama,
             'alamat'           => $this->alamat,

@@ -4,9 +4,14 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class KmTransaksi extends Model
+class Kmtransaksi extends Model
 {
-    protected $table = 'Km_Transaksi';
+    protected $table = 'kmtransaksi';
 
     protected $guarded = [];
+
+    public function regiskesmas()
+    {
+        return $this->belongsTo(Regiskesmas::class);
+    }
 }

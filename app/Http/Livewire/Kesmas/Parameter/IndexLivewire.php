@@ -4,7 +4,7 @@ namespace App\Http\Livewire\Kesmas\Parameter;
 
 use Livewire\Component;
 use Livewire\WithPagination;
-use App\KmParameterPemeriksaan;
+use App\Kmparameter;
 
 class IndexLivewire extends Component
 {
@@ -19,16 +19,16 @@ class IndexLivewire extends Component
     public function render()
     {
         return view('livewire.kesmas.parameter.index',[
-            'parameter_fisika'       => KmParameterPemeriksaan::where('jenis',1)
+            'parameter_fisika'       => Kmparameter::where('jenis',1)
                                         ->where('nama', 'like', '%'.$this->search.'%')
                                         ->paginate(5),
-            'parameter_wajib'        => KmParameterPemeriksaan::where('jenis',2)
+            'parameter_wajib'        => Kmparameter::where('jenis',2)
                                         ->where('nama', 'like', '%'.$this->search.'%')
                                         ->paginate(5),
-            'parameter_tambahan'     => KmParameterPemeriksaan::where('jenis',3)
+            'parameter_tambahan'     => Kmparameter::where('jenis',3)
                                         ->where('nama', 'like', '%'.$this->search.'%')                            
                                         ->paginate(5),
-            'parameter_mikrobiologi' => KmParameterPemeriksaan::where('jenis',4)
+            'parameter_mikrobiologi' => Kmparameter::where('jenis',4)
                                         ->where('nama', 'like', '%'.$this->search.'%')                            
                                         ->paginate(5)
             ])->extends('admin::layouts.app')
@@ -56,7 +56,7 @@ class IndexLivewire extends Component
             'jenis' => 'required',
             'harga' => 'required|numeric'
         ]);
-        $parameter = KmParameterPemeriksaan::create([
+        $parameter = Kmparameter::create([
             'nama' => $this->nama,
             'jenis'=> $this->jenis,
             'harga'=> $this->harga
@@ -83,7 +83,7 @@ class IndexLivewire extends Component
     public function editParameter($id)
     {
         $this->updateMode = true;
-        $parameter = KmParameterPemeriksaan::where('id',$id)->first();
+        $parameter = Kmparameter::where('id',$id)->first();
         $this->parameterId = $id;
         $this->nama = $parameter->nama;
         $this->jenis = $parameter->jenis;
@@ -100,7 +100,7 @@ class IndexLivewire extends Component
         ]);
 
         if ($this->parameterId) {
-            $parameter = KmParameterPemeriksaan::find($this->parameterId);
+            $parameter = Kmparameter::find($this->parameterId);
             $parameter->update([
                 'nama' => $this->nama,
                 'jenis'=> $this->jenis,
@@ -115,7 +115,7 @@ class IndexLivewire extends Component
 
     public function destroyModalParameter($id)
     {
-        $parameter = KmParameterPemeriksaan::where('id',$id)->first();
+        $parameter = Kmparameter::where('id',$id)->first();
         $this->parameterId = $id;
         
     }
@@ -123,7 +123,7 @@ class IndexLivewire extends Component
     public function destroyParameter()
     {
         if($this->parameterId) {
-            $parameter = KmParameterPemeriksaan::find($this->parameterId);
+            $parameter = Kmparameter::find($this->parameterId);
             $parameter->delete();
         }
 

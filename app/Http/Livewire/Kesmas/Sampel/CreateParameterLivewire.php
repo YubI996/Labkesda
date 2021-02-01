@@ -4,10 +4,10 @@ namespace App\Http\Livewire\Kesmas\Sampel;
 
 use Livewire\Component;
 use App\User;
-use App\KmParameterPemeriksaan;
-use App\RegisKesmas;
-use App\KmSampel;
-use App\KmTransaksi;
+use App\Kmparameter;
+use App\Regiskesmas;
+use App\Kmsampel;
+use App\Kmtransaksi;
 
 
 class CreateParameterLivewire extends Component
@@ -26,10 +26,11 @@ class CreateParameterLivewire extends Component
         
         $this->total_harga = array_sum($this->check_parameter);
         return view('livewire.kesmas.sampel.createparameter',[
-            'parameter_fisika'       => KmParameterPemeriksaan::where('jenis',1)->get(),
-            'parameter_wajib'        => KmParameterPemeriksaan::where('jenis',2)->get(),
-            'parameter_tambahan'     => KmParameterPemeriksaan::where('jenis',3)->get(),
-            'parameter_mikrobiologi' => KmParameterPemeriksaan::where('jenis',4)->get()
+            'RegisKesmas' => Regiskesmas::find($this->regiskesmasId),
+            'parameter_fisika'       => Kmparameter::where('jenis',1)->get(),
+            'parameter_wajib'        => Kmparameter::where('jenis',2)->get(),
+            'parameter_tambahan'     => Kmparameter::where('jenis',3)->get(),
+            'parameter_mikrobiologi' => Kmparameter::where('jenis',4)->get()
         ])
         ->extends('admin::layouts.app')
         ->section('main-content');
@@ -40,9 +41,9 @@ class CreateParameterLivewire extends Component
         foreach($this->check_parameter as  $id=>$data){
            $get[] = (($id));
 
-           $sampel = KmSampel::create([
-               'id_regis_kesmas' => $this->regiskesmasId,
-               'id_km_parameter_pemeriksaan' => $id,
+           $sampel = Kmsampel::create([
+               'regiskesmas_id' => $this->regiskesmasId,
+               'kmparameter_id' => $id,
                'hasil_pemeriksaan' => null
                ]);
                
@@ -50,7 +51,7 @@ class CreateParameterLivewire extends Component
 
         if($this->regiskesmasId) {
 
-            $regiskesmas = RegisKesmas::find($this->regiskesmasId);
+            $regiskesmas = Regiskesmas::find($this->regiskesmasId);
             
             if($regiskesmas) {
                 $regiskesmas->update([
@@ -59,8 +60,8 @@ class CreateParameterLivewire extends Component
             }
         }
 
-        $kmtransaksi = KmTransaksi::create([
-            'id_regis_kesmas' => $this->regiskesmasId,
+        $Kmtransaksi = Kmtransaksi::create([
+            'regiskesmas_id' => $this->regiskesmasId,
             'total_harga' => $this->total_harga,
         ]);
 

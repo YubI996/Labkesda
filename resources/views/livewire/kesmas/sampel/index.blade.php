@@ -20,6 +20,7 @@
 							        <th data-field="hrg">Tanggal Penerima</th>
 							        <th data-field="sts">Status</th>
 							        <th data-field="param">Parameter</th>
+							        <th data-field="param">Hasil</th>
 							        <th data-field="action">Aksi</th>
 							    </tr>
 							</thead>
@@ -41,21 +42,58 @@
 										<label class="label label-success">Terverif</label>
 										@endif
 									</td>
-                                    <td><a href="{{route('kesmas.createParameterSampel', $data->id)}}" class="btn btn-primary btn-sm">Add</a></td>
                                     <td>
-									
-									<button data-toggle="modal" data-target="#destroyModal"  class="btn btn-danger btn-sm">Delete</button>
+										@if($data->status_regis === 0)
+										<a href="{{route('kesmas.createParameterSampel', $data->id)}}" class="btn btn-primary btn-sm" >Add</a>
+										@else
+										<a class="btn btn-primary btn-sm" disabled>Add</a>
+										@endif
+									</td>
+                                    <td>
+									@if($data->status_regis === 1)
+									<a href="{{route('kesmas.hasil',$data->id)}}" class="btn btn-primary btn-sm" >Hasil</a>
+									@else
+									<a class="btn btn-primary btn-sm" disabled>Hasil</a>
+									@endif
+									</td>
+                                    <td>
+									<button class="btn btn-info btn-sm">Details</button> 
+									@if($data->status_regis === 1)                                       
+									<a href="{{route('kesmas.struk',$data->id)}}" class="btn btn-warning btn-sm">Struk</a> 
+									@else
+									<a class="btn btn-warning btn-sm" disabled>Struk</a> 
+									@endif
+									@if($data->status_regis === 3)                                           
+                                    <button class="btn btn-warning btn-sm">Cetak Hasil</button>
+									@else
+									<button class="btn btn-warning btn-sm" disabled>Cetak Hasil</button>
+									@endif     
+                                    <button data-toggle="modal" data-target="#destroyModal"  class="btn btn-danger btn-sm">Delete</button> 
+									<!-- <div class="button-drop-style-one btn-success-bg">
+                                        <button type="button" class="btn btn-custon-four btn-warning btn-sm dropdown-toggle" data-toggle="dropdown">More<i class="fa fa-angle-down"></i>
+											</button>
+                                        <ul class="dropdown-menu btn-dropdown-menu " role="menu">
+											<li><button class="btn btn-info btn-sm">Details</button>
+                                            </li>
+                                            <li><button class="btn btn-warning btn-sm">Struk</button>
+                                            </li>
+                                            <li><button class="btn btn-warning btn-sm">Cetak Hasil</button>
+                                            </li>
+                                            <li><button data-toggle="modal" data-target="#destroyModal"  class="btn btn-danger btn-sm">Delete</button> 
+                                            </li>
+                                        </ul>
+                                    </div> -->
 									</td>	                            
 	                            </tr>
 							@empty
 								<tr>
-									<td colspan="7"><center>Data Tidak Ada</center></td>
+									<td colspan="8"><center>Data Tidak Ada</center></td>
 								</tr>
 							@endforelse	                                               	
 	                        </tbody>
 	                    </table>
 						<div>
-							<button></button>
+							<!-- nav link -->
 						</div>
                 </div>
             </div>

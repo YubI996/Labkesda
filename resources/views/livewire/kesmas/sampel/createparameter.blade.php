@@ -7,35 +7,45 @@
                     <table class="table">
                         <tr>
                             <td>No Register</td>
-                            <td>8685585</td>
+                            <td>{{$RegisKesmas->no_regis}}</td>
                         </tr>
                         <tr>
                             <td>Nama</td>
-                            <td>Taufik Hidayat</td>
+                            <td>{{$RegisKesmas->nama}}</td>
                         </tr>
                         <tr>
                             <td>Alamat</td>
-                            <td>Jl. Baru</td>
+                            <td>{{$RegisKesmas->alamat}}</td>
                         </tr>
                         <tr>
                             <td>Pengirim</td>
-                            <td>Taufik Hidayat</td>
+                            <td>{{$RegisKesmas->pengirim}}</td>
                         </tr>
                         <tr>
                             <td>Jenis Sampel</td>
-                            <td>Makanan</td>
+                            <td>{{$RegisKesmas->jenis_sampel}}</td>
                         </tr>
                         <tr>
                             <td>Status</td>
-                            <td><label class="label label-danger"> Belum Bayar</label></td>
+                            <td>
+                                @if($RegisKesmas->status_regis === 0)
+								<label class="label label-danger">Parameter Tidak Tersedia</label>
+								@elseif($RegisKesmas->status_regis === 1)
+								<label class="label label-danger">Belum Dibayar</label>
+								@elseif($RegisKesmas->status_regis === 2)
+								<label class="label label-warning">Proses</label>
+								@elseif($RegisKesmas->status_regis === 3)
+								<label class="label label-success">Terverif</label>
+								@endif
+                            </td>
                         </tr>
                         <tr>
                             <td>Tanggal Penerima</td>
-                            <td>17/01/2021 13:00</td>
+                            <td>{{$RegisKesmas->tgl_penerima}}</td>
                         </tr>
                         <tr>
                             <td>Tanggal Sampling</td>
-                            <td>17/01/2021 14:00</td>
+                            <td>{{$RegisKesmas->tgl_sampling}}</td>
                         </tr>
                     </table>
                 </div>
