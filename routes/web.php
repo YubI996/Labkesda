@@ -29,4 +29,5 @@ Route::group(['middleware' => 'superadmin',"prefix"=>"admin/kesmas/"], function(
     Route::get('create-parameter-sampel/{id}', \App\Http\Livewire\Kesmas\Sampel\CreateParameterLivewire::class)->name('kesmas.createParameterSampel');
     Route::get('hasil/{id}', \App\Http\Livewire\Kesmas\Sampel\HasilLivewire::class)->name('kesmas.hasil');
     Route::get('strukpdf/{id}',[KesmasPdfController::class,'struk'])->name('kesmas.struk');
+    Route::get('hasilpdf/{id}',[KesmasPdfController::class,'hasil'])->name('kesmas.hasil');
 });

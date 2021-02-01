@@ -22,4 +22,11 @@ class KesmasPdfController extends Controller
 
         return $pdf->stream('struk-pembayaran-kesmas.pdf');
     }
+
+    public function hasil($id)
+    {
+        $RegisKesmas = Regiskesmas::findOrFail($id);
+        $pdf = PDF::loadview('kesmas.pdf.pdfhasil',compact('RegisKesmas'))->setPaper('a4', 'potraite');
+        return $pdf->stream('hasil-kesmas.pdf');
+    }
 }

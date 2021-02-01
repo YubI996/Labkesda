@@ -28,8 +28,13 @@ class HasilLivewire extends Component
     public function updateHasil()
     {
         $regiskesmas = Regiskesmas::find($this->regiskesmasId);
-        $regiskesmas->parameter()->sync(['hasil_pemeriksaan' => 20,'hasil_pemeriksaan' => 25],
-        );
+
+        foreach($this->hasil as  $id=>$data1){
+        $data = [
+            'hasil_pemeriksaan' => $this->hasil,
+        ];
+        }
+        $regiskesmas->parameter()->updateExistingPivot();
            
     }
 

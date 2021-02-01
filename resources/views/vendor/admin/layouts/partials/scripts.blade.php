@@ -96,5 +96,9 @@
         window.livewire.on('openDeleteConfirmationUser', () => {
             $('#userDestroyModal').modal('hide');
         });
+        //==================Sampel=================//
+        window.livewire.on('openDeleteConfirmationSampel', () => {
+            $('#sampelDestroyModal').modal('hide');
+        });
     </script>
 @yield('custom_scripts')

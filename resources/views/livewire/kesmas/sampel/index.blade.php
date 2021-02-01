@@ -1,4 +1,5 @@
 <div>
+@include('livewire.kesmas.sampel.delete-confirmation')
 <h4>Data Registrasi</h4>
 <div class="row">
 	<div class="col-lg-12 col-md-12 col-sm-12">              
@@ -44,7 +45,7 @@
 									</td>
                                     <td>
 										@if($data->status_regis === 0)
-										<a href="{{route('kesmas.createParameterSampel', $data->id)}}" class="btn btn-primary btn-sm" >Add</a>
+										<a href="{{route('kesmas.createParameterSampel', $data->id)}}" class="btn btn-primary btn-sm">Add</a>
 										@else
 										<a class="btn btn-primary btn-sm" disabled>Add</a>
 										@endif
@@ -64,11 +65,11 @@
 									<a class="btn btn-warning btn-sm" disabled>Struk</a> 
 									@endif
 									@if($data->status_regis === 3)                                           
-                                    <button class="btn btn-warning btn-sm">Cetak Hasil</button>
+                                    <a href="{{route('kesmas.hasil',$data->id)}}" class="btn btn-warning btn-sm">Cetak Hasil</a>
 									@else
 									<button class="btn btn-warning btn-sm" disabled>Cetak Hasil</button>
 									@endif     
-                                    <button data-toggle="modal" data-target="#destroyModal"  class="btn btn-danger btn-sm">Delete</button> 
+                                    <button data-toggle="modal" data-target="#sampelDestroyModal" wire:click="destroyModalSampel({{ $data->id }})" class="btn btn-danger btn-md">Delete</button>
 									<!-- <div class="button-drop-style-one btn-success-bg">
                                         <button type="button" class="btn btn-custon-four btn-warning btn-sm dropdown-toggle" data-toggle="dropdown">More<i class="fa fa-angle-down"></i>
 											</button>
