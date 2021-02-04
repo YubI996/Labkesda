@@ -17,6 +17,9 @@ use App\Http\Controllers\KesmasPdfController;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/form', function () {
+    return view('form');
+})->name('form');
 
 Auth::routes();
 

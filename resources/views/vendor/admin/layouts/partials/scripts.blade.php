@@ -1,3 +1,4 @@
+   @livewireScripts
    <!-- jquery
 		============================================ -->
     <script src="{{asset('admin/js/jquery-min.js')}}"></script>
