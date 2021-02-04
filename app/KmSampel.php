@@ -4,9 +4,11 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class KmSample extends Model
+class Kmsampel extends Model
 {
-    protected $table = 'km_sample';
+    protected $table = 'kmparameter_regiskesmas';
 
     protected $guarded = [];
+
+    
 }

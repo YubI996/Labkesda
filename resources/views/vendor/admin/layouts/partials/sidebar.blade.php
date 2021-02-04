@@ -16,7 +16,7 @@
                         </li>
                         
                         <li>
-                            <a href="#" aria-expanded="false"><span class="educate-icon educate-student icon-wrap"></span> <span class="mini-click-non">Sample</span></a>
+                            <a href="{{route('kesmas.sampel')}}" aria-expanded="false"><span class="educate-icon educate-student icon-wrap"></span> <span class="mini-click-non">Registrasi</span></a>
                         </li>
                         <li>
                             <a href="{{route('kesmas.parameter')}}" aria-expanded="false"><span class="educate-icon educate-library icon-wrap"></span> <span class="mini-click-non">Parameter</span></a>

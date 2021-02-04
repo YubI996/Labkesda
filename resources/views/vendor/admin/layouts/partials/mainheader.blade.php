@@ -16,7 +16,9 @@
                             <div class="header-top-wraper">
                                 <div class="row">
                                     <div class="col-lg-7 col-md-0 col-sm-1 col-xs-12">
-                                        <!-- kosong -->
+                                                <button type="button" id="sidebarCollapse" class="btn bar-button-pro header-drl-controller-btn btn-secondary btn-sm navbar-btn">
+													<i class="educate-icon educate-nav"></i>
+												</button>
                                     </div>
                                     <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
                                         <div class="header-right-info">
