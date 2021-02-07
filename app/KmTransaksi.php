@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Kmtransaksi extends Model
 {
-    protected $table = 'kmtransaksi';
+    protected $table = 'km_transaksi';
 
     protected $guarded = [];
 

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Regiskesmas extends Model
 {
-    protected $table = 'regiskesmas';
+    protected $table = 'regis_kesmas';
 
     protected $guarded = [];
 

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Kmparameter extends Model
 {
-    protected $table = 'kmparameter';
+    protected $table = 'km_parameter_pemeriksaan';
 
     protected $guarded = [];
 
