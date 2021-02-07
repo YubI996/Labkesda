@@ -34,7 +34,9 @@ class DaftarKlinik extends Component
         }
 
         $params = Parameter::get()->groupBy('kategori');   
-        return view('livewire.daftar-klinik', compact('params'));
+        return view('livewire.daftar-klinik', compact('params')
+        )->extends('admin::layouts.app')
+              ->section('main-content');
     }
      public function reloadData()
     {
