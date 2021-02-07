@@ -31,7 +31,7 @@ class ParameterSeeder extends Seeder
         $toksikologi = ['Tes Narkoba(1 parameter)'=>34500];
 
         $mikrobiologi = ['Jamur (Kerokan Kulit)'=>100000,'Faeses Lengkap'=>18500,'Secret Vagina (Uretra)'=>25000];
-        $coll = collect(['hematologi'=>$hematologi,'urinalisa'=>$urinalisa,'immunologi'=>$immunologi,'kimia_klinik'=>$kimia_klinik,'pewarnaan'=>$pewarnaan,'toksikologi'=>$toksikologi,'mikrobiologi'=>$mikrobiologi]);
+        $coll = collect(['Hematologi'=>$hematologi,'Urinalisa'=>$urinalisa,'Immunologi'=>$immunologi,'Kimia Klinik'=>$kimia_klinik,'Pewarnaan'=>$pewarnaan,'Toksikologi'=>$toksikologi,'Mikrobiologi'=>$mikrobiologi]);
         // echo $coll;
         foreach($coll as $key=>$val){
             foreach ($val as $k => $v) {

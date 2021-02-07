@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use App\User;
+use Database\Seeds\ParameterSeeder as paramKlinik;
 
 class DatabaseSeeder extends Seeder
 {
@@ -18,6 +19,9 @@ class DatabaseSeeder extends Seeder
             'email' => 'labkes@gmail.com',
             'password' => Hash::make('admin123'),
             'role' => 'superadmin',
+        ]);
+        $this->call([
+            ParameterSeeder::class
         ]);
     }
 }
