@@ -35,6 +35,6 @@ class RegisKesmas extends Migration
      */
     public function down()
     {
-        //
+       Schema::dropIfExists('regis_kesmas');
     }
 }
