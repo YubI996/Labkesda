@@ -30,7 +30,7 @@ class DaftarKlinik extends Component
         }
         if (!(empty($this->paramTerpilih))){
             $this->total = array_sum($this->paramTerpilih);
-            $this->total = "Rp. ".number_format($this->total,0,',','.');
+            // $this->total = "Rp. ".number_format($this->total,0,',','.');
         }
 
         $params = Parameter::get()->groupBy('kategori');   
