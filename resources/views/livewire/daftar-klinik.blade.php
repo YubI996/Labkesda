@@ -6,132 +6,134 @@
             <div class="card">
                 <div class="card-body" style="padding: 15px 20px; margin: 10px 10px 10px 10px">
                     <h3>Data Pelanggan</h3>
-                    <form wire:submit.prevent="submit">
-                    <table class="table">
-                                <tr>
-                                    <td>
-                                        <label class="" for="q1">Nama Pelanggan </label>
-                                    </td>
-                                    <td>
-                                        <input id="" name="" class="form-control" type="text" maxlength="255" wire:model.lazy="userDatas.nama" /> 
-                                    </td>
-                                </tr> 
-                    
-                    
-                                <tr>
-                                    <td>
-                                        <label class="" for="">Jenis Kelamin </label>
-
-                                    </td>
-                                    <td>
-                                        <input type="radio" id="bpjs" name="jaminan"  value="Perempuan"  wire:model.lazy="userDatas.jenkel"/>
-                                        <label class="" for="bpjs">Perempuan</label>
-                                    </td>
-                                    <td>
-                                        <input type="radio" id="umum" name="jaminan"  value="Laki-laki"  wire:model.lazy="userDatas.jenkel"/>
-                                        <label class="" for="umum">Laki-laki</label>
-                                    </td>
-                                </tr> 
-                                <tr>
-                                    <td>
-                                        <label class="" for="">Tanggal Lahir </label>
-
-                                    </td>
-                                    <td>
-                                        <input wire:model="userDatas.tgll" type="date" id="" name="" class="form-control">
-
-                                    </td>
-                                </tr>
-                    
-                                <tr>
-                                    <td>
-                                        <label class="" for="">Usia </label>
-
-                                    </td>
-                                    <td>
-                                        <input id="" name=""  class="form-control" type="text" maxlength="255" wire:model.lazy="userDatas.usia"/> 
-
-                                    </td>
-                                </tr> 
-                                <tr>
-                                    <td>
-                                        <label class="" for="">Alamat </label>
-
-                                    </td>
-                                    <td>
-                                        <input id=""name class="form-control" type="text" maxlength="255" wire:model.lazy="userDatas.alamat"/> 
-
-                                    </td>
-                                </tr> 
-                    
-                                <tr>
-                                    <td>
-                                        <label class="" for="">No. Hp </label>
-
-                                    </td>
-                                    <td>
-                                        <input id="" name=""  class="form-control" type="text" maxlength="255" wire:model.lazy="userDatas.no_hp"/> 
-
-                                    </td>
-                                </tr> 
-                                <tr>
-                                    <td>
-                                        <label class="" for="">Pengirim </label>
-
-                                    </td>
-                                    <td>
-                                        <input id=""name class="form-control" type="text" maxlength="255" wire:model.lazy="userDatas.pengirim"/> 
-
-                                    </td>
-                                </tr> 
-                
-                                <tr>
-                                    <td>
-                                        <label class="" for="">Dokter </label>
-
-                                    </td>
-                                    <td>
-
-                                        <input id=""name class="form-control" type="text" maxlength="255" wire:model.lazy="userDatas.dokter"/> 
-                                    </td>
-                                </tr> 
-                                <tr>
-                                    <td>
-                                        <label class="" for="">Jaminan </label>
-
-                                    </td>
-                                    <td>
-                                        <input type="radio" id="bpjs" name="jaminan"   value="bpjs"  wire:model.lazy="userDatas.jaminan"/>
-                                        <label class="" for="bpjs">BPJS</label>
-                                    </td>
-                                    <td>
-                                        <input type="radio" id="umum" name="jaminan"   value="umum"  wire:model.lazy="userDatas.jaminan"/>
-                                        <label class="" for="umum">Umum</label>
-                                    </td>
-                                </tr>
+                    <form wire:submit.prevent="save_user">
+                        <table class="table">
                                     <tr>
                                         <td>
-                                            <label class="" for="">Nomor Registrasi </label>
+                                            <label class="" for="q1">Nama Pelanggan </label>
+                                        </td>
+                                        <td>
+                                            <input id="" name="" class="form-control" type="text" maxlength="255" wire:model.lazy="userDatas.nama" /> 
+                                        </td>
+                                    </tr> 
+                        
+                        
+                                    <tr>
+                                        <td>
+                                            <label class="" for="">Jenis Kelamin</label>
 
                                         </td>
                                         <td>
-                                            <input id=""name class="form-control" type="text" maxlength="255" wire:model.lazy="userDatas.no_regis"/> 
+                                            <input type="radio" id="p" name="Jenis Kelamin"  value="Perempuan"  wire:model.lazy="userDatas.Jenis Kelamin"/>
+                                            <label class="" for="p">Perempuan</label>
+                                        </td>
+                                        <td>
+                                            <input type="radio" id="l" name="Jenis Kelamin"  value="Laki-laki"  wire:model.lazy="userDatas.Jenis Kelamin"/>
+                                            <label class="" for="l">Laki-laki</label>
+                                        </td>
+                                    </tr> 
+                                    <tr>
+                                        <td>
+                                            <label class="" for="">Tanggal Lahir </label>
+
+                                        </td>
+                                        <td>
+                                            <input wire:model="userDatas.tgll" type="date" id="" name="" class="form-control">
+
+                                        </td>
+                                    </tr>
+                        
+                                    <tr>
+                                        <td>
+                                            <label class="" for="">Usia </label>
+
+                                        </td>
+                                        <td>
+                                            <input id="" name=""  class="form-control" type="text" maxlength="255" wire:model.lazy="userDatas.usia"/> 
 
                                         </td>
                                     </tr> 
-                                <tr>
-                                    <td>
+                                    <tr>
+                                        <td>
+                                            <label class="" for="">Alamat </label>
 
-                                        <label for="">Tanggal Pendaftaran </label>
-                                    </td>
-                                    <td>
-                                        <input  class="form-control" wire:model="userDatas.tgl_daftar" type="datetime-local" id="" name="">
+                                        </td>
+                                        <td>
+                                            <input id=""name class="form-control" type="text" maxlength="255" wire:model.lazy="userDatas.alamat"/> 
 
-                                    </td>
-                                </tr>
-                    </table>
+                                        </td>
+                                    </tr> 
+                        
+                                    <tr>
+                                        <td>
+                                            <label class="" for="">No. Hp </label>
+
+                                        </td>
+                                        <td>
+                                            <input id="" name=""  class="form-control" type="text" maxlength="255" wire:model.lazy="userDatas.no_hp"/> 
+
+                                        </td>
+                                    </tr> 
+                                    <tr>
+                                        <td>
+                                            <label class="" for="">Pengirim </label>
+
+                                        </td>
+                                        <td>
+                                            <input id=""name class="form-control" type="text" maxlength="255" wire:model.lazy="userDatas.pengirim"/> 
+
+                                        </td>
+                                    </tr> 
+                    
+                                    <tr>
+                                        <td>
+                                            <label class="" for="">Dokter </label>
+
+                                        </td>
+                                        <td>
+
+                                            <input id=""name class="form-control" type="text" maxlength="255" wire:model.lazy="userDatas.dokter"/> 
+                                        </td>
+                                    </tr> 
+                                    <tr>
+                                        <td>
+                                            <label class="" for="">Jaminan </label>
+
+                                        </td>
+                                        <td>
+                                            <input type="radio" id="bpjs" name="jaminan"   value="bpjs"  wire:model.lazy="userDatas.jaminan"/>
+                                            <label class="" for="bpjs">BPJS</label>
+                                        </td>
+                                        <td>
+                                            <input type="radio" id="umum" name="jaminan"   value="umum"  wire:model.lazy="userDatas.jaminan"/>
+                                            <label class="" for="umum">Umum</label>
+                                        </td>
+                                    </tr>
+                                        <tr>
+                                            <td>
+                                                <label class="" for="">Nomor Registrasi </label>
+
+                                            </td>
+                                            <td>
+                                                <input id=""name class="form-control" type="text" maxlength="255" wire:model.lazy="userDatas.no_regis"/> 
+
+                                            </td>
+                                        </tr> 
+                                    <tr>
+                                        <td>
+
+                                            <label for="">Tanggal Pendaftaran </label>
+                                        </td>
+                                        <td>
+                                            <input  class="form-control" wire:model="userDatas.tgl_daftar" type="datetime-local" id="" name="">
+
+                                        </td>
+                                    </tr>
+                        </table>
+                    </form>
                 </div>
             </div>
+                <form wire:submit.prevent="save_params"></form>
                 <h3>Parameter Yang Diperiksa</h3>
                 <div class="form-group"  style="margin: 10px 10px ">
 
