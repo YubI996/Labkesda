@@ -29,7 +29,7 @@
                                     <div class="col-lg-12">
                                     	<table id="table" class="table">
                                     		<thead>
-							                    <tr">
+							                    <tr>
 							                        <th data-field="id">No.</th>
 							                        <th data-field="name">Nama Parameter</th>
 							                        <th data-field="jns">Jenis Parameter</th>

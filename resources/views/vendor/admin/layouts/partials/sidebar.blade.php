@@ -24,6 +24,9 @@
                         <li>
                             <a href="{{route('kesmas.user')}}" aria-expanded="false"><span class="educate-icon educate-course icon-wrap"></span> <span class="mini-click-non">User</span></a>
                         </li>
+                        <li>
+                            <a href="{{route('form')}}" aria-expanded="false"><span class="educate-icon educate-course icon-wrap"></span> <span class="mini-click-non">Daftar klinik</span></a>
+                        </li>
                     </ul>
                 </nav>
             </div>
