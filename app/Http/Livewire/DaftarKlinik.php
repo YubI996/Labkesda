@@ -5,6 +5,9 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use Illuminate\Support\Collection;
 use App\Parameter;
+use App\RegisKlinik as user;
+use App\Transaksi as trans;
+use App\Parameter_Transaksi;
 use DateTime;
 
 class DaftarKlinik extends Component
@@ -44,11 +47,23 @@ class DaftarKlinik extends Component
         $this->Params = Parameter::get()->groupBy('kategori');
 
     }
-     public function save_params()
+    
+    public function validate()
     {
-        // dump($this->userDatas);
-        // dump($this->paramTerpilih);
-        // dump($this->total);
+        if((!(empty($this->userDatas))) && (!(empty($this->paramTerpilih)))){
+            save_user();
+            save_params();
+        }
+    }
+    public function save_user()
+    {
+        $save_user = user::create([
+
+        ]);
+    }
+    public function save_params()
+    {
+        dd($this->userDatas);
     }
 
 }

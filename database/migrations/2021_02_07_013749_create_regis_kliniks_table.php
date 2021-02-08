@@ -15,6 +15,8 @@ class CreateRegisKliniksTable extends Migration
     {
         Schema::create('regis_kliniks', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('no_regis')->unique();
+            $table->string('nama');
             $table->date('tgll');
             $table->integer('usia');
             $table->enum('jenis_kelamin',['Laki-laki', 'Perempuan']);
@@ -23,7 +25,6 @@ class CreateRegisKliniksTable extends Migration
             $table->string('pengirim');
             $table->string('dokter');
             $table->string('jaminan');
-            $table->string('no_regis')->unique();
             $table->date('tgl_regis');
             $table->timestamps();
         });
