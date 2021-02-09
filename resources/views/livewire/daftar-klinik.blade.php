@@ -13,7 +13,7 @@
                                             <label class="" for="q1">Nama Pelanggan </label>
                                         </td>
                                         <td>
-                                            <input id="" name="" class="form-control" type="text" maxlength="255" wire:model.lazy="userDatas.nama" /> 
+                                            <input id="nama" name="nama" class="form-control" type="text" maxlength="255" wire:model.lazy="userDatas.nama" required /> 
                                         </td>
                                     </tr> 
                         
@@ -24,11 +24,9 @@
 
                                         </td>
                                         <td>
-                                            <input type="radio" id="p" name="Jenis Kelamin"  value="Perempuan"  wire:model.lazy="userDatas.Jenis Kelamin"/>
+                                            <input type="radio" id="p" name="Jenis Kelamin"  value="Perempuan"  wire:model.lazy="userDatas.Jenis Kelamin" required/>
                                             <label class="" for="p">Perempuan</label>
-                                        </td>
-                                        <td>
-                                            <input type="radio" id="l" name="Jenis Kelamin"  value="Laki-laki"  wire:model.lazy="userDatas.Jenis Kelamin"/>
+                                            <input type="radio" id="l" name="Jenis Kelamin"  value="Laki-laki"  wire:model.lazy="userDatas.Jenis Kelamin" required/>
                                             <label class="" for="l">Laki-laki</label>
                                         </td>
                                     </tr> 
@@ -38,7 +36,7 @@
 
                                         </td>
                                         <td>
-                                            <input wire:model="userDatas.tgll" type="date" id="" name="" class="form-control">
+                                            <input wire:model="userDatas.tgll" type="date" id="" name="tgll" class="form-control" required>
 
                                         </td>
                                     </tr>
@@ -49,7 +47,7 @@
 
                                         </td>
                                         <td>
-                                            <input id="" name=""  class="form-control" type="text" maxlength="255" wire:model.lazy="userDatas.usia"/> 
+                                            <input id="" name="usia"  class="form-control" type="text" maxlength="255" wire:model.lazy="userDatas.usia" required/> 
 
                                         </td>
                                     </tr> 
@@ -59,7 +57,7 @@
 
                                         </td>
                                         <td>
-                                            <input id=""name class="form-control" type="text" maxlength="255" wire:model.lazy="userDatas.alamat"/> 
+                                            <input id="" name="alamat" class="form-control" type="text" maxlength="255" wire:model.lazy="userDatas.alamat" required/> 
 
                                         </td>
                                     </tr> 
@@ -70,7 +68,7 @@
 
                                         </td>
                                         <td>
-                                            <input id="" name=""  class="form-control" type="text" maxlength="255" wire:model.lazy="userDatas.no_hp"/> 
+                                            <input id="" name="no_hp"  class="form-control" type="number" maxlength="255" wire:model.lazy="userDatas.no_hp" required/> 
 
                                         </td>
                                     </tr> 
@@ -80,7 +78,7 @@
 
                                         </td>
                                         <td>
-                                            <input id=""name class="form-control" type="text" maxlength="255" wire:model.lazy="userDatas.pengirim"/> 
+                                            <input id="" name="pengirim" class="form-control" type="text" maxlength="255" wire:model.lazy="userDatas.pengirim" required/> 
 
                                         </td>
                                     </tr> 
@@ -92,7 +90,7 @@
                                         </td>
                                         <td>
 
-                                            <input id=""name class="form-control" type="text" maxlength="255" wire:model.lazy="userDatas.dokter"/> 
+                                            <input id=""name="dokter"class="form-control" type="text" maxlength="255" wire:model.lazy="userDatas.dokter" required/> 
                                         </td>
                                     </tr> 
                                     <tr>
@@ -101,11 +99,9 @@
 
                                         </td>
                                         <td>
-                                            <input type="radio" id="bpjs" name="jaminan"   value="bpjs"  wire:model.lazy="userDatas.jaminan"/>
+                                            <input type="radio" id="bpjs" name="jaminan"   value="bpjs"  wire:model.lazy="userDatas.jaminan" required/>
                                             <label class="" for="bpjs">BPJS</label>
-                                        </td>
-                                        <td>
-                                            <input type="radio" id="umum" name="jaminan"   value="umum"  wire:model.lazy="userDatas.jaminan"/>
+                                            <input type="radio" id="umum" name="jaminan"   value="umum"  wire:model.lazy="userDatas.jaminan" required/>
                                             <label class="" for="umum">Umum</label>
                                         </td>
                                     </tr>
@@ -115,7 +111,7 @@
 
                                             </td>
                                             <td>
-                                                <input id=""name class="form-control" type="text" maxlength="255" wire:model.lazy="userDatas.no_regis"/> 
+                                                <input id=""name="no_regis"class="form-control" type="text" maxlength="255" wire:model.lazy="userDatas.no_regis" required/> 
 
                                             </td>
                                         </tr> 
@@ -125,15 +121,15 @@
                                             <label for="">Tanggal Pendaftaran </label>
                                         </td>
                                         <td>
-                                            <input  class="form-control" wire:model="userDatas.tgl_daftar" type="datetime-local" id="" name="">
+                                            <input  class="form-control" wire:model="userDatas.tgl_daftar" type="datetime-local" id="" name="tgl_daftar">
 
                                         </td>
                                     </tr>
                         </table>
-                    </form>
+                    {{-- </form> --}}
                 </div>
             </div>
-                <form wire:submit.prevent="save_params"></form>
+            {{-- <form wire:submit.prevent="save_params"> --}}
                 <h3>Parameter Yang Diperiksa</h3>
                 <div class="form-group"  style="margin: 10px 10px ">
 
@@ -181,13 +177,13 @@
                                 
                             </td>
                             <td>
-                                <input id="jam" class="form-control" name="jam" class="" size="2" type="time" maxlength="2" value=""/><br>
+                                <input id="jam" class="form-control" name="jam" class="" size="2" type="time" maxlength="2" value="" required/><br>
 
                             </td>
                         </tr>
                         <tr>
                             <td colspan="2">
-                                <input id="" class="form-control" type="submit" name="submit" value="Submit"/>
+                                <input id="" class="form-control" type="submit" name="submit" value="Submit" required/>
 
                             </td>
                         </tr>

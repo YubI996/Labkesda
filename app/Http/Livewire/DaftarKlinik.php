@@ -7,7 +7,7 @@ use Illuminate\Support\Collection;
 use App\Parameter;
 use App\RegisKlinik as user;
 use App\Transaksi as trans;
-use App\Parameter_Transaksi;
+use App\Parameter_Transaksi as pivot;
 use DateTime;
 
 class DaftarKlinik extends Component
@@ -57,26 +57,31 @@ class DaftarKlinik extends Component
     // }
     public function save_user()
     {
-        $valid = $this->validate([
-            'nama' => 'required',
-            'jenis kelamin' => 'required',
-            'tgll' => 'required|date',
-            'usia' => 'required|numeric',
-            'alamat' => 'required',
-            'no_hp' => 'required|numeric',
-            'pengirim' => 'required',
-            'dokter' => 'required',
-            'jaminan' => 'required',
-            'no_regis' => 'required|unique',
-            'tgl_daftar' => 'required'
-        ]);
         $save_user = user::create([
-
+            'nama'          => $this->userDatas['nama'],
+            'jenis_kelamin' =>  $this->userDatas['Jenis Kelamin'],
+            'tgll'          =>  $this->userDatas['tgll'],
+            'usia'          =>  $this->userDatas['usia'],
+            'alamat'        =>  $this->userDatas['alamat'],
+            'no_hp'         =>  $this->userDatas['no_hp'],
+            'pengirim'      =>  $this->userDatas['pengirim'],
+            'dokter'        =>  $this->userDatas['dokter'],
+            'jaminan'       =>  $this->userDatas['jaminan'],
+            'no_regis'      =>  $this->userDatas['no_regis'],
+            'tgl_regis'    =>  $this->userDatas['tgl_daftar']
         ]);
+        $save_trans = trans::create([
+            'regis_klinik_id' => $save_user->id,
+            'total' => $this->total,
+            'status_bayar' => 0
+        ]);
+        foreach ($this->paramTerpilih as $key => $value) {
+            $save_param = pivot::create([
+                'transaksi_id' => $save_trans->id,
+                'parameter_id' => $key,
+                'hasil' => '']);
+        }
     }
-    public function save_params()
-    {
-        dd($this->userDatas);
-    }
+
 
 }
