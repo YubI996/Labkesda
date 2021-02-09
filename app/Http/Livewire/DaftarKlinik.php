@@ -48,15 +48,28 @@ class DaftarKlinik extends Component
 
     }
     
-    public function validate()
-    {
-        if((!(empty($this->userDatas))) && (!(empty($this->paramTerpilih)))){
-            save_user();
-            save_params();
-        }
-    }
+    // public function validate()
+    // {
+    //     if((!(empty($this->userDatas))) && (!(empty($this->paramTerpilih)))){
+    //         save_user();
+    //         save_params();
+    //     }
+    // }
     public function save_user()
     {
+        $valid = $this->validate([
+            'nama' => 'required',
+            'jenis kelamin' => 'required',
+            'tgll' => 'required|date',
+            'usia' => 'required|numeric',
+            'alamat' => 'required',
+            'no_hp' => 'required|numeric',
+            'pengirim' => 'required',
+            'dokter' => 'required',
+            'jaminan' => 'required',
+            'no_regis' => 'required|unique',
+            'tgl_daftar' => 'required'
+        ]);
         $save_user = user::create([
 
         ]);
